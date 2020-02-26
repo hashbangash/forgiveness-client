@@ -16,7 +16,6 @@ const showForm = () => {
 const onCreatePost = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   const post = {
     'post': {
       'title': data.title,
@@ -25,21 +24,19 @@ const onCreatePost = (event) => {
       'post_date': '2020/02/02'
     }
   }
-  console.log(post)
   api.createPost(post)
     .then(ui.onCreatePostSuccess)
     .catch(ui.onCreatePostFailure)
 }
 
-// event handler listens for when get # of games started button clicked
-const onReadIndexOfGamesStarted = () => {
-  api.readIndexOfGamesStarted()
-    .then(ui.onReadIndexOfGamesStartedSuccess)
-    .catch(ui.onReadIndexOfGamesStartedFailure)
+const onIndexPosts = () => {
+  api.indexPosts()
+    .then(ui.onIndexPostsSuccess)
+    .catch(ui.onIndexPostsFailure)
 }
 
 module.exports = {
   showForm,
   onCreatePost,
-  onReadIndexOfGamesStarted
+  onIndexPosts
 }

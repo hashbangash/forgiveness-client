@@ -27,6 +27,7 @@ const onSignInSuccess = function (response) {
   $('#change-password').show()
   $('#sign-out').show()
   $('#create-post-button').show()
+  $('#index-posts-button').show()
   store.user = response.user
 }
 

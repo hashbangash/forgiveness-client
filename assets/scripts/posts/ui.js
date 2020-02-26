@@ -11,7 +11,18 @@ const onCreatePostFailure = function (response) {
   $('#message').text(`sorry, error on our end. please try again.`)
 }
 
+const onIndexPostsSuccess = function (response) {
+  console.log(response)
+  $('#message').text(`generated existing posts!`)
+}
+
+const onIndexPostsFailure = function (response) {
+  $('#message').text(`sorry, error on our end. please try again.`)
+}
+
 module.exports = {
   onCreatePostSuccess,
-  onCreatePostFailure
+  onCreatePostFailure,
+  onIndexPostsSuccess,
+  onIndexPostsFailure
 }

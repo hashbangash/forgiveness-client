@@ -28,20 +28,9 @@ const updateGame = () => {
   })
 }
 
-const readIndexOfGamesStarted = () => {
+const indexPosts = () => {
   return $.ajax({
-    url: `${config.apiUrl}/games`,
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    data: ''
-  })
-}
-
-const readIndexOfGamesFinished = () => {
-  return $.ajax({
-    url: `${config.apiUrl}/games?over=true`,
+    url: `${config.apiUrl}/posts`,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -53,6 +42,5 @@ const readIndexOfGamesFinished = () => {
 module.exports = {
   createPost,
   updateGame,
-  readIndexOfGamesStarted,
-  readIndexOfGamesFinished
+  indexPosts
 }
