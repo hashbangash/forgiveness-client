@@ -8,8 +8,8 @@ $(() => {
   // initial page display
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#post-board').hide()
   $('#create-post-button').hide()
+  $('#index-posts-button').hide()
   $('#create-post-form').hide()
 
   // create auth event handlers
@@ -21,4 +21,5 @@ $(() => {
   // create post event handlers
   $('#create-post-button').on('click', postEvents.showForm)
   $('#create-post-form').on('submit', postEvents.onCreatePost)
+  $('#index-posts-button').on('click', postEvents.onIndexPosts)
 })
