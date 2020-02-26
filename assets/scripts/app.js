@@ -9,6 +9,7 @@ $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#post-board').hide()
+  $('#create-post-button').hide()
   $('#create-post-form').hide()
 
   // create auth event handlers

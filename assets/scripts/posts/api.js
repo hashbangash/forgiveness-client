@@ -6,14 +6,14 @@ const store = require('./../store')
 
 // contains all AJAX calls to the API
 
-const createGame = () => {
+const createPost = (data) => {
   return $.ajax({
-    url: `${config.apiUrl}/games`,
+    url: `${config.apiUrl}/posts`,
     method: 'POST',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    data: '{}'
+    data: data
   })
 }
 
@@ -51,7 +51,7 @@ const readIndexOfGamesFinished = () => {
 }
 
 module.exports = {
-  createGame,
+  createPost,
   updateGame,
   readIndexOfGamesStarted,
   readIndexOfGamesFinished
