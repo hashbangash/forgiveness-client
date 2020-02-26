@@ -1,17 +1,14 @@
 'use strict'
 
 // import event handlers
-const gameEvents = require('./games/events')
+const postEvents = require('./posts/events')
 const authEvents = require('./auth/events')
 
 $(() => {
   // initial page display
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#play-button').hide()
-  $('#game-board').hide()
-  $('#get-games-started-button').hide()
-  $('#get-games-finished-button').hide()
+  $('#message-board').hide()
 
   // create auth event handlers
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -20,8 +17,6 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
 
   // create game event handlers
-  $('#play-button').on('click', gameEvents.onCreateGame)
-  $('#game-board').on('click', gameEvents.onUpdateGame)
-  $('#get-games-started-button').on('click', gameEvents.onReadIndexOfGamesStarted)
-  // $('#get-games-finished-button').on('click', gameEvents.onReadIndexOfGamesFinished)
+  $('#play-button').on('click', postEvents.onCreateGame)
+  $('#message-board').on('click', postEvents.onUpdateGame)
 })
