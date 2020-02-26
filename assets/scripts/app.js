@@ -8,7 +8,9 @@ $(() => {
   // initial page display
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#message-board').hide()
+  $('#post-board').hide()
+  $('#create-post-button').hide()
+  $('#create-post-form').hide()
 
   // create auth event handlers
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -16,7 +18,7 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
 
-  // create game event handlers
-  $('#play-button').on('click', postEvents.onCreateGame)
-  $('#message-board').on('click', postEvents.onUpdateGame)
+  // create post event handlers
+  $('#create-post-button').on('click', postEvents.showForm)
+  $('#create-post-form').on('submit', postEvents.onCreatePost)
 })

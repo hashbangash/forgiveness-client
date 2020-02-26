@@ -45,7 +45,23 @@
         </fieldset>
       </form>
       <p id='message'></p>
-      <div id="message-board" class="container">
+      <button id='create-post-button' class='btn btn-primary'>Create Post</button>
+      <form id='create-post-form'>
+        <fieldset>
+          <legend>Create a post!</legend>
+          <label>Title:</label>
+          <input name='title' type='text' placeholder="title">
+          <br>
+          <label>Author:</label>
+          <input name='author' type='text' placeholder="name/alias/historical figure">
+          <br>
+          <label>Body:</label>
+          <textarea name='body' placeholder="here goes nothing!"></textarea>
+          <br>
+          <input type='submit' value='create post!'>
+        </fieldset>
+      </form>
+      <div id="post-board" class="container">
         <div class="row">
           <div data-cell-index='0' class="col-12 box"></div>
         </div>

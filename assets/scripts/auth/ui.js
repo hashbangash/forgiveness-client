@@ -26,9 +26,7 @@ const onSignInSuccess = function (response) {
   $('#sign-up').hide()
   $('#change-password').show()
   $('#sign-out').show()
-  $('#play-button').show()
-  $('#get-games-started-button').show()
-  // $('#get-games-finished-button').show()
+  $('#create-post-button').show()
   store.user = response.user
 }
 
