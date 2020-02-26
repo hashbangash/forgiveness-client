@@ -8,7 +8,6 @@ $(() => {
   // initial page display
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#post-board').hide()
   $('#create-post-button').hide()
   $('#index-posts-button').hide()
   $('#create-post-form').hide()

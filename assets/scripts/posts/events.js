@@ -26,13 +26,13 @@ const onCreatePost = (event) => {
   }
   api.createPost(post)
     .then(ui.onCreatePostSuccess)
-    .catch(ui.onCreatePostFailure)
+    .catch(ui.failure)
 }
 
 const onIndexPosts = () => {
   api.indexPosts()
     .then(ui.onIndexPostsSuccess)
-    .catch(ui.onIndexPostsFailure)
+    .catch(ui.failure)
 }
 
 module.exports = {

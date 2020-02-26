@@ -2,27 +2,32 @@
 
 // const store = require('./../store')
 // contains most all of the jQuery to update the webpage
+const indexPostsTemplate = require('../templates/post-listing.handlebars')
 
 const onCreatePostSuccess = function (response) {
   $('#message').text(`post successfully created!`)
 }
 
-const onCreatePostFailure = function (response) {
-  $('#message').text(`sorry, error on our end. please try again.`)
-}
-
 const onIndexPostsSuccess = function (response) {
   console.log(response)
   $('#message').text(`generated existing posts!`)
+  const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
+  console.log(indexPostsHtml)
+  $('#post-board').html(indexPostsHtml)
 }
 
-const onIndexPostsFailure = function (response) {
+const failure = function (error) {
+  console.log(error)
   $('#message').text(`sorry, error on our end. please try again.`)
+}
+
+const clearPosts = () => {
+  $('#post-board').empty()
 }
 
 module.exports = {
   onCreatePostSuccess,
-  onCreatePostFailure,
   onIndexPostsSuccess,
-  onIndexPostsFailure
+  failure,
+  clearPosts
 }
