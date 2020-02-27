@@ -2,11 +2,11 @@
   {{#if post.editable}}
     <section data-id="{{post.id}}">
       <h6>Title:</h6>
-      <h3>
+      <h3 class='title'>
         {{post.title}}
       </h3>
       <h6>Author:</h6>
-      <p>
+      <p class='author'>
         {{#if post.author}}
           {{post.author}}
         {{else}}
@@ -14,10 +14,11 @@
         {{/if}}
       </p>
       <h6>Body:</h6>
-      <h3>
+      <h3 class='body'>
         {{post.body}}
       </h3>
         {{> remove-post id=post.id}}
+        {{> edit-post id=post.id}}
     </section>
   {{/if}}
 {{/each}}

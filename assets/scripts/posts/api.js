@@ -17,14 +17,14 @@ const createPost = (data) => {
   })
 }
 
-const updateGame = () => {
+const editPost = (post, id) => {
   return $.ajax({
-    url: `${config.apiUrl}/games/${store.game.id}`,
+    url: `${config.apiUrl}/games/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    data: store.move
+    data: post
   })
 }
 
@@ -53,7 +53,7 @@ const deletePost = function (event) {
 
 module.exports = {
   createPost,
-  updateGame,
+  editPost,
   indexPosts,
   deletePost
 }

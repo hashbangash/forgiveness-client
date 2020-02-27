@@ -33,10 +33,25 @@ const onCreatePost = (event) => {
     .catch(ui.failure)
 }
 
-const onEditPost = (event) => {
-  showForm()
+const onEditPostStart = (event) => {
+  $('#edit-post-form').show()
+  $('#message').text('please re-fill out the form to edit!')
+  // const id = $(event.target).data('id')
+  // console.log(id, event)
+  // const parent = (event.target).parentElement
+  // console.log(parent)
+  // const title = $(parent).attr('.title')
+  // console.log(title)
+  // $('#create-post-form [name="title"]').val(parent.title)
+
+  ui.clearPosts()
+}
+
+const onEditPostSubmit = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
+  const id = $(event.target).data('id')
+  console.log(data, id)
   const post = {
     'post': {
       'title': data.title,
@@ -45,11 +60,8 @@ const onEditPost = (event) => {
       'post_date': '2020/02/02'
     }
   }
-  api.createPost(post)
-    .then(function () {
-      store.routeFromCreatePost = true
-      onIndexPosts(event)
-    })
+  api.editPost(post, id)
+    .then(ui.onEditPostSuccess)
     .catch(ui.failure)
 }
 
@@ -79,5 +91,6 @@ module.exports = {
   onIndexPosts,
   onDeletePost,
   onClearPosts,
-  onEditPost
+  onEditPostStart,
+  onEditPostSubmit
 }
