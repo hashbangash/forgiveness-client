@@ -1,22 +1,23 @@
 {{#each posts as |post|}}
-  <section data-id="{{post.id}}">
-    <h6>Title:</h6>
-    <h3>
-      {{post.title}}
-    </h3>
-    <h6>Author:</h6>
-    <p>
-      {{#if post.author}}
-        {{post.author}}
-      {{else}}
-        Anonymous.
-      {{/if}}
-    </p>
-    <h6>Body:</h6>
-    <h3>
-      {{post.body}}
-    </h3>
-      {{> remove-post id=post.id}}
-  </section>
-
+  {{#if post.editable}}
+    <section data-id="{{post.id}}">
+      <h6>Title:</h6>
+      <h3>
+        {{post.title}}
+      </h3>
+      <h6>Author:</h6>
+      <p>
+        {{#if post.author}}
+          {{post.author}}
+        {{else}}
+          Anonymous.
+        {{/if}}
+      </p>
+      <h6>Body:</h6>
+      <h3>
+        {{post.body}}
+      </h3>
+        {{> remove-post id=post.id}}
+    </section>
+  {{/if}}
 {{/each}}
