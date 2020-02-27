@@ -36,7 +36,6 @@ main {
     &:empty {
       &::before {
         color: lighten($info, 25%);
-        content: 'Click Show Posts';
         font-size: 10vh;
         line-height: .85;
         text-align: center;

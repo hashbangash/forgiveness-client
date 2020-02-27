@@ -61,6 +61,7 @@ const onSignOutSuccess = function (response) {
   $('#get-games-started-message').hide()
   $('#get-games-finished-button').hide()
   $('#get-games-finished-message').hide()
+  $('#post-board').empty()
 
   // set the locally stored user data to null
   store.user = null
