@@ -9,10 +9,8 @@ const onCreatePostSuccess = function (response) {
 }
 
 const onIndexPostsSuccess = function (response) {
-  console.log(response)
   $('#message').text(`generated existing posts!`)
   const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
-  console.log(indexPostsHtml)
   $('#post-board').html(indexPostsHtml)
 }
 

@@ -22,4 +22,5 @@ $(() => {
   $('#create-post-button').on('click', postEvents.showForm)
   $('#create-post-form').on('submit', postEvents.onCreatePost)
   $('#index-posts-button').on('click', postEvents.onIndexPosts)
+  $('.post-board').on('click', '.remove-post', postEvents.onDeletePost)
 })

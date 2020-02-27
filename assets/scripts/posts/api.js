@@ -39,8 +39,21 @@ const indexPosts = () => {
   })
 }
 
+const deletePost = function (event) {
+  const id = $(event.target).data('id')
+  console.log(id)
+  return $.ajax({
+    url: `${config.apiUrl}/posts/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
   createPost,
   updateGame,
-  indexPosts
+  indexPosts,
+  deletePost
 }

@@ -10,6 +10,7 @@ const getFormFields = require('./../../../lib/get-form-fields')
 const showForm = () => {
   $('#create-post-button').hide()
   $('#create-post-form').show()
+  $('#message').text('fill out the form to post!')
 }
 
 // event handler listens for when 'create post' form submit is clicked
@@ -35,8 +36,18 @@ const onIndexPosts = () => {
     .catch(ui.failure)
 }
 
+const onDeletePost = (event) => {
+  event.preventDefault()
+  api.deletePost(event)
+    .then(function () {
+      onIndexPosts(event)
+    })
+    .catch(ui.failure)
+}
+
 module.exports = {
   showForm,
   onCreatePost,
-  onIndexPosts
+  onIndexPosts,
+  onDeletePost
 }
