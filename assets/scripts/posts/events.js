@@ -33,8 +33,13 @@ const onCreatePost = (event) => {
     .catch(ui.failure)
 }
 
-const onEditPost = (event) => {
+const onEditPostStart = (event) => {
+
+}
+
+const onEditPostSubmit = (event) => {
   showForm()
+
   event.preventDefault()
   const data = getFormFields(event.target)
   const post = {
@@ -79,5 +84,6 @@ module.exports = {
   onIndexPosts,
   onDeletePost,
   onClearPosts,
-  onEditPost
+  onEditPostStart,
+  onEditPostSubmit
 }
