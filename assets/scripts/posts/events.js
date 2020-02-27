@@ -34,14 +34,24 @@ const onCreatePost = (event) => {
 }
 
 const onEditPostStart = (event) => {
+  $('#edit-post-form').show()
+  $('#message').text('please re-fill out the form to edit!')
+  // const id = $(event.target).data('id')
+  // console.log(id, event)
+  // const parent = (event.target).parentElement
+  // console.log(parent)
+  // const title = $(parent).attr('.title')
+  // console.log(title)
+  // $('#create-post-form [name="title"]').val(parent.title)
 
+  ui.clearPosts()
 }
 
 const onEditPostSubmit = (event) => {
-  showForm()
-
   event.preventDefault()
   const data = getFormFields(event.target)
+  const id = $(event.target).data('id')
+  console.log(data, id)
   const post = {
     'post': {
       'title': data.title,
@@ -50,11 +60,8 @@ const onEditPostSubmit = (event) => {
       'post_date': '2020/02/02'
     }
   }
-  api.createPost(post)
-    .then(function () {
-      store.routeFromCreatePost = true
-      onIndexPosts(event)
-    })
+  api.editPost(post, id)
+    .then(ui.onEditPostSuccess)
     .catch(ui.failure)
 }
 

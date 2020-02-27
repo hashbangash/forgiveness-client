@@ -11,6 +11,7 @@ $(() => {
   $('#create-post-button').hide()
   $('#index-posts-button').hide()
   $('#create-post-form').hide()
+  $('#edit-post-form').hide()
 
   // create auth event handlers
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -21,6 +22,7 @@ $(() => {
   // create post event handlers
   $('#create-post-button').on('click', postEvents.showForm)
   $('#create-post-form').on('submit', postEvents.onCreatePost)
+  $('#edit-post-form').on('submit', postEvents.onEditPostSubmit)
   $('#index-posts-button').on('click', postEvents.onIndexPosts)
   $('.post-board').on('click', '.remove-post', postEvents.onDeletePost)
   $('.post-board').on('click', '.edit-post', postEvents.onEditPostStart)
