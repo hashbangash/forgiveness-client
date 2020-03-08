@@ -7,6 +7,32 @@ const postFormTemplate = require('../templates/post-form.handlebars')
 
 const store = require('./../store')
 
+const displayLoggedOutHome = () => {
+  // initial page display
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#create-post-button').hide()
+  $('#index-all-posts-button').hide()
+  $('#index-my-posts-button').hide()
+  $('#create-post-form').hide()
+  $('#edit-post-form').hide()
+  onIndexAllPosts()
+}
+
+const eventHandlers = () => {
+  // create post event handlers
+  $('#create-post-button').on('click', showFormForCreate)
+  $('.edit-post').on('click', showFormForEdit)
+  $('#index-all-posts-button').on('click', onIndexAllPosts)
+  // #TODO $('#index-my-posts-button').on('click', onIndexMyPosts)
+  $('#post-form').on('submit', '.create-form', function (event) {
+    event.preventDefault()
+    onCreateOrEditPost(event)
+  })
+  $('#post-board').on('click', '.remove-post', onDeletePost)
+  $('#post-board').on('click', '.edit-post', onEditPostStart)
+}
+
 // event handler listens for when 'create post' button is clicked
 const showFormForCreate = () => {
   store.creatingPost = true
@@ -25,7 +51,6 @@ const showFormForEdit = () => {
 }
 
 const onCreateOrEditPost = (event) => {
-  console.log(event.target)
   if (store.creatingPost === true) {
     onCreatePost(event)
   } else {
@@ -35,7 +60,6 @@ const onCreateOrEditPost = (event) => {
 
 // event handler listens for when 'create post' form submit is clicked
 const onCreatePost = (event) => {
-  console.log(event)
   const data = getFormFields(event.target)
   const post = {
     'post': {
@@ -45,10 +69,9 @@ const onCreatePost = (event) => {
       'post_date': '2020/02/02'
     }
   }
-  console.log(post)
   api.createPost(post)
     .then(function () {
-      onIndexPosts(event)
+      onIndexAllPosts(event)
     })
     .catch(ui.failure)
 }
@@ -78,9 +101,9 @@ const onEditPostSubmit = (event) => {
     .catch(ui.failure)
 }
 
-const onIndexPosts = () => {
-  api.indexPosts()
-    .then(ui.onIndexPostsSuccess)
+const onIndexAllPosts = () => {
+  api.indexAllPosts()
+    .then(ui.onIndexAllPostsSuccess)
     .catch(ui.failure)
 }
 
@@ -88,17 +111,19 @@ const onDeletePost = (event) => {
   event.preventDefault()
   api.deletePost(event)
     .then(function () {
-      onIndexPosts(event)
+      onIndexAllPosts(event)
     })
     .catch(ui.failure)
 }
 
 module.exports = {
+  eventHandlers,
+  displayLoggedOutHome,
   showFormForCreate,
   showFormForEdit,
   onCreatePost,
   onCreateOrEditPost,
-  onIndexPosts,
+  onIndexAllPosts,
   onDeletePost,
   onEditPostStart,
   onEditPostSubmit
