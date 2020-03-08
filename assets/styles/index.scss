@@ -5,6 +5,10 @@ body {
   height: 100%;
 }
 
+.page-content {
+  flex: 1 0 auto;
+}
+
 main {
   flex-direction: row-reverse;
 }
@@ -13,8 +17,12 @@ h1 {
   background-color: green;
 }
 
-.page-content {
-  flex: 1 0 auto;
+.box {
+  background-color: $secondary;
+}
+
+.user-actions {
+  background-color: purple;
 }
 
 .sticky-footer {
