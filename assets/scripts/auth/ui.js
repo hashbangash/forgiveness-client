@@ -59,6 +59,7 @@ const onSignOutSuccess = function (response) {
   $('#index-all-posts-button').hide()
   $('#index-my-posts-button').hide()
   $('#create-post-button').hide()
+  store.signingOut = true
   events.onIndexAllPosts()
   // set the locally stored user data to null
   store.user = null
