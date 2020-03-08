@@ -16,7 +16,7 @@
         <header>
           <h1>the forgiveness project(ion)</h1>
         </header>
-        <main class="container-fluid row">
+        <main class="container-fluid row main">
           <section id="user-actions" class="user-actions col-xs-12 col-md-4">
             <p id="message"></p>
             <form id="sign-up">
@@ -50,27 +50,13 @@
                 <input type='submit' value='Sign out!'>
               </fieldset>
             </form>
-            <button id="index-posts-button" class="btn btn-primary">My Posts</button>
+            <button id="index-my-posts-button" class="btn btn-primary">My Posts</button>
+            <button id="index-all-posts-button" class="btn btn-primary">All Posts</button>
             <button id="create-post-button" class="btn btn-primary">Create Post</button>
           </section>
-          <section id="post-form" class="modal hidden">
-            <form>
-              <fieldset>
-                <legend>Create a post!</legend>
-                <label>Title:</label>
-                <input name='title' type='text' placeholder="title">
-                <br>
-                <label>Author:</label>
-                <input name='author' type='text' placeholder="name/alias/historical figure">
-                <br>
-                <label>Body:</label>
-                <textarea name='body' placeholder="here goes nothing!"></textarea>
-                <br>
-                <input type='submit' value='create post!'>
-              </fieldset>
-            </form>
-          </section>
           <section id="post-board" class="col-xs-12 col-md-8">
+          </section>
+          <section id="post-form" class="col-xs-12 col-md-8">
           </section>
         </main>
       </div>
