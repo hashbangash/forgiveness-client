@@ -19,7 +19,7 @@ const createPost = (data) => {
 
 const editPost = (post, id) => {
   return $.ajax({
-    url: `${config.apiUrl}/games/${id}`,
+    url: `${config.apiUrl}/posts/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -47,9 +47,18 @@ const indexMyPosts = () => {
   })
 }
 
+const showPost = function (id) {
+  return $.ajax({
+    url: `${config.apiUrl}/posts/${id}`,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 const deletePost = function (event) {
   const id = $(event.target).data('id')
-  console.log(id)
   return $.ajax({
     url: `${config.apiUrl}/posts/${id}`,
     method: 'DELETE',
@@ -64,5 +73,6 @@ module.exports = {
   editPost,
   indexAllPosts,
   indexMyPosts,
+  showPost,
   deletePost
 }
