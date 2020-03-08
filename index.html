@@ -12,73 +12,66 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>the forgiveness project(ion)</h1>
-      <form id='sign-up'>
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input name='credentials[email]' type='email' placeholder="email">
-          <input name='credentials[password]' type='password' placeholder="password">
-          <input name='credentials[password_confirmation]' type='password' placeholder="confirm password">
-          <input type='submit' value='sign up!'>
-        </fieldset>
-      </form>
-      <form id='sign-in'>
-        <fieldset>
-          <legend>Sign in!</legend>
-          <input name='credentials[email]' type='email' placeholder="person@site.com">
-          <input name='credentials[password]' type='password' placeholder="p4ssw0rd143">
-          <input type='submit' value='sign in!'>
-        </fieldset>
-      </form>
-      <form id='change-password'>
-        <fieldset>
-          <legend>Change password!</legend>
-          <input name='passwords[old]' type='password' placeholder="old p4ssw0rd143">
-          <input name='passwords[new]' type='password' placeholder="new p4ssw0rd143">
-          <input type='submit' value='change password!'>
-        </fieldset>
-      </form>
-      <form id='sign-out'>
-        <fieldset>
-          <legend>Sign out!</legend>
-          <input type='submit' value='Sign out!'>
-        </fieldset>
-      </form>
-      <p id='message'></p>
-      <button id='index-posts-button' class='btn btn-primary'>Show Posts</button>
-      <button id='create-post-button' class='btn btn-primary'>Create Post</button>
-      <form id='create-post-form'>
-        <fieldset>
-          <legend>Create a post!</legend>
-          <label>Title:</label>
-          <input name='title' type='text' placeholder="title">
-          <br>
-          <label>Author:</label>
-          <input name='author' type='text' placeholder="name/alias/historical figure">
-          <br>
-          <label>Body:</label>
-          <textarea name='body' type='text' placeholder="here goes nothing!"></textarea>
-          <br>
-          <input type='submit' value='create post!'>
-        </fieldset>
-      </form>
-      <form id='edit-post-form'>
-        <fieldset>
-          <legend>Edit your post!</legend>
-          <label>Title:</label>
-          <input name='title' type='text' placeholder="title">
-          <br>
-          <label>Author:</label>
-          <input name='author' type='text' placeholder="name/alias/historical figure">
-          <br>
-          <label>Body:</label>
-          <textarea name='body' type='text' placeholder="here goes nothing!"></textarea>
-          <br>
-          <input type='submit' value='edit post!'>
-        </fieldset>
-      </form>
+      <header>
+        <h1>the forgiveness project(ion)</h1>
+      </header>
       <main>
-        <div id="post-board" class="post-board container"></div>
+        <section id='user-auth'>
+          <form id='sign-up'>
+            <fieldset>
+              <legend>Sign up!</legend>
+              <input name='credentials[email]' type='email' placeholder="email">
+              <input name='credentials[password]' type='password' placeholder="password">
+              <input name='credentials[password_confirmation]' type='password' placeholder="confirm password">
+              <input type='submit' value='sign up!'>
+            </fieldset>
+          </form>
+          <form id='sign-in'>
+            <fieldset>
+              <legend>Sign in!</legend>
+              <input name='credentials[email]' type='email' placeholder="person@site.com">
+              <input name='credentials[password]' type='password' placeholder="p4ssw0rd143">
+              <input type='submit' value='sign in!'>
+            </fieldset>
+          </form>
+          <form id='change-password'>
+            <fieldset>
+              <legend>Change password!</legend>
+              <input name='passwords[old]' type='password' placeholder="old p4ssw0rd143">
+              <input name='passwords[new]' type='password' placeholder="new p4ssw0rd143">
+              <input type='submit' value='change password!'>
+            </fieldset>
+          </form>
+          <form id='sign-out'>
+            <fieldset>
+              <legend>Sign out!</legend>
+              <input type='submit' value='Sign out!'>
+            </fieldset>
+          </form>
+        </section>
+        <section id='post-buttons'>
+          <p id='message'></p>
+          <button id='index-posts-button' class='btn btn-primary'>Show Posts</button>
+          <button id='create-post-button' class='btn btn-primary'>Create Post</button>
+        </section>
+        <section id='post-form'>
+          <form>
+            <fieldset>
+              <legend>Create a post!</legend>
+              <label>Title:</label>
+              <input name='title' type='text' placeholder="title">
+              <br>
+              <label>Author:</label>
+              <input name='author' type='text' placeholder="name/alias/historical figure">
+              <br>
+              <label>Body:</label>
+              <textarea name='body' type='text' placeholder="here goes nothing!"></textarea>
+              <br>
+              <input type='submit' value='create post!'>
+            </fieldset>
+          </form>
+        </section>
+        <section id="post-board"></section>
       </main>
       <footer>Copyright 2020 Ash Grevelink</footer>
     </body>
