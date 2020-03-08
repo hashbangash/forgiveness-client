@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const events = require('./../posts/events.js')
 
 const onSignUpSuccess = function (response) {
   $('#message').text(`${response.user.email} successfully signed up!`)
@@ -55,7 +56,10 @@ const onSignOutSuccess = function (response) {
   $('#sign-out').hide()
   $('#sign-in').show()
   $('#sign-up').show()
-
+  $('#index-all-posts-button').hide()
+  $('#index-my-posts-button').hide()
+  $('#create-post-button').hide()
+  events.onIndexAllPosts()
   // set the locally stored user data to null
   store.user = null
 }
