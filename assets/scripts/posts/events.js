@@ -23,6 +23,14 @@ const eventHandlers = () => {
   $('#create-post-button').on('click', showFormForCreate)
   $('#index-all-posts-button').on('click', onIndexAllPosts)
   $('#index-my-posts-button').on('click', onIndexMyPosts)
+  $('#post-content').on('click', '.remove-post', onDeletePost)
+  $('#post-content').on('click', '.edit-post', onEditPostStart)
+
+  // the 2nd parameter to these handlers is the optional
+  // selector that doesn't exist yet, but will exist
+  // with #post-content once handlebars creates them.
+  // because they are forms, use an anonymous function to
+  // preventDefault before sending them on.
   $('#post-content').on('submit', '.create-form', function (event) {
     event.preventDefault()
     onCreateOrEditPost(event)
@@ -31,8 +39,6 @@ const eventHandlers = () => {
     event.preventDefault()
     onEditPostSubmit(event)
   })
-  $('#post-content').on('click', '.remove-post', onDeletePost)
-  $('#post-content').on('click', '.edit-post', onEditPostStart)
 }
 
 // event handler listens for when 'create post' button is clicked
@@ -44,6 +50,8 @@ const showFormForCreate = () => {
   $('#post-content').html(postFormHtml)
 }
 
+// a similar form is used for creating and editing
+// so we funnel control flow through here
 const onCreateOrEditPost = (event) => {
   if (store.creatingPost === true) {
     onCreatePost(event)
@@ -52,7 +60,8 @@ const onCreateOrEditPost = (event) => {
   }
 }
 
-// event handler listens for when 'create post' form submit is clicked
+// event handler listens for when 'create post'
+// form submit is clicked
 const onCreatePost = (event) => {
   const data = getFormFields(event.target)
   const post = {
@@ -62,6 +71,9 @@ const onCreatePost = (event) => {
       'body': data.body
     }
   }
+  // anonymous function allows two lines to be written
+  // and callback not to be invoked till response comes back
+  // to .then()
   api.createPost(post)
     .then(function () {
       onIndexAllPosts(event)
@@ -69,6 +81,7 @@ const onCreatePost = (event) => {
     .catch(ui.failure)
 }
 
+// when a user begins to update a post
 const onEditPostStart = (event) => {
   store.creatingPost = false
   const id = $(event.target).data('id')
@@ -77,6 +90,7 @@ const onEditPostStart = (event) => {
     .catch(ui.failure)
 }
 
+// when a user submits an edited post
 const onEditPostSubmit = (event) => {
   const data = getFormFields(event.target)
   const id = store.post.post.id
@@ -87,6 +101,9 @@ const onEditPostSubmit = (event) => {
       'body': data.body
     }
   }
+  // anonymous function allows two lines to be written
+  // and callback not to be invoked till response comes back
+  // to .then()
   api.editPost(post, id)
     .then(function () {
       store.editingPost = true
@@ -95,18 +112,21 @@ const onEditPostSubmit = (event) => {
     .catch(ui.failure)
 }
 
+// get list of all posts
 const onIndexAllPosts = () => {
   api.indexAllPosts()
     .then(ui.onIndexAllPostsSuccess)
     .catch(ui.failure)
 }
 
+// get list of just one user's posts
 const onIndexMyPosts = () => {
   api.indexMyPosts()
     .then(ui.onIndexMyPostsSuccess)
     .catch(ui.failure)
 }
 
+// delete a user's post
 const onDeletePost = (event) => {
   event.preventDefault()
   api.deletePost(event)
