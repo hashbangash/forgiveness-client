@@ -5,7 +5,7 @@ const store = require('./../store')
 const indexPostsTemplate = require('../templates/post-listing.handlebars')
 
 const onIndexPostsSuccess = function (response) {
-  if (store.routeFromCreatePost === true) {
+  if (store.creatingPost === true) {
     $('#post-form').hide()
     $('#create-post-button').show()
     $('#message').text(`post successfully created!`)
