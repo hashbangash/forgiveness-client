@@ -8,27 +8,34 @@ const postFormTemplate = require('../templates/post-form.handlebars')
 const store = require('./../store')
 
 // event handler listens for when 'create post' button is clicked
-const showForm = () => {
+const showFormForCreate = () => {
+  store.creatingPost = true
   $('#create-post-button').hide()
   const postFormHtml = postFormTemplate()
   $('#post-board').hide()
   $('#post-form').html(postFormHtml)
 }
 
+const showFormForEdit = () => {
+  store.creatingPost = false
+  $('#post-board').hide()
+  $('#create-post-button').hide()
+  // const postFormHtml = postFormTemplate()
+  // $('#post-form').html(postFormHtml)
+}
+
 const onCreateOrEditPost = (event) => {
-  alert('wait!')
   console.log(event.target)
-  event.preventDefault()
-  if (event.target === 'createPost') {
-    onCreatePost()
+  if (store.creatingPost === true) {
+    onCreatePost(event)
   } else {
-    onEditPostStart()
+    onEditPostStart(event)
   }
 }
 
 // event handler listens for when 'create post' form submit is clicked
 const onCreatePost = (event) => {
-  event.preventDefault()
+  console.log(event)
   const data = getFormFields(event.target)
   const post = {
     'post': {
@@ -38,9 +45,9 @@ const onCreatePost = (event) => {
       'post_date': '2020/02/02'
     }
   }
+  console.log(post)
   api.createPost(post)
     .then(function () {
-      store.routeFromCreatePost = true
       onIndexPosts(event)
     })
     .catch(ui.failure)
@@ -87,7 +94,8 @@ const onDeletePost = (event) => {
 }
 
 module.exports = {
-  showForm,
+  showFormForCreate,
+  showFormForEdit,
   onCreatePost,
   onCreateOrEditPost,
   onIndexPosts,

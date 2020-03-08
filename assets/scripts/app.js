@@ -21,10 +21,14 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
 
   // create post event handlers
-  $('#create-post-button').on('click', postEvents.showForm)
+  $('#create-post-button').on('click', postEvents.showFormForCreate)
+  $('.edit-post').on('click', postEvents.showFormForEdit)
   $('#index-all-posts-button').on('click', postEvents.onIndexAllPosts)
   $('#index-my-posts-button').on('click', postEvents.onIndexMyPosts)
-  $('#post-form').on('submit', '.create-or-edit-post-submit', postEvents.onCreateOrEditPost)
+  $('#post-form').on('submit', '.create-form', function (event) {
+    event.preventDefault()
+    postEvents.onCreateOrEditPost(event)
+  })
   $('#post-board').on('click', '.remove-post', postEvents.onDeletePost)
   $('#post-board').on('click', '.edit-post', postEvents.onEditPostStart)
 
