@@ -6,10 +6,10 @@ const indexPostsTemplate = require('../templates/post-listing.handlebars')
 
 const onIndexAllPostsSuccess = function (response) {
   if (store.creatingPost === true) {
-    $('#post-form').hide()
+    $('#post-form').empty()
     $('#create-post-button').show()
-    $('#message').text(`post successfully created!`)
-    $('#post-board').show()
+    $('#message').text(`Post successfully created!`)
+    store.creatingPost = null
   } else {
     $('#message').text(`Viewing all user posts!`)
   }
@@ -18,15 +18,15 @@ const onIndexAllPostsSuccess = function (response) {
     $('#index-my-posts-button').show()
   }
   const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
-  $('#post-board').html(indexPostsHtml)
+  $('#post-content').html(indexPostsHtml)
 }
 
 const onIndexMyPostsSuccess = function (response) {
   console.log('made it')
-  $('#post-board').empty()
+  $('#post-content').empty()
   $('#message').text(`Viewing your posts!`)
   const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
-  $('#post-board').html(indexPostsHtml)
+  $('#post-content').html(indexPostsHtml)
   $('#index-all-posts-button').show()
   $('#index-my-posts-button').hide()
 }

@@ -25,29 +25,28 @@ const eventHandlers = () => {
   $('.edit-post').on('click', showFormForEdit)
   $('#index-all-posts-button').on('click', onIndexAllPosts)
   $('#index-my-posts-button').on('click', onIndexMyPosts)
-  $('#post-form').on('submit', '.create-form', function (event) {
+  $('#post-content').on('submit', '.create-form', function (event) {
     event.preventDefault()
     onCreateOrEditPost(event)
   })
-  $('#post-board').on('click', '.remove-post', onDeletePost)
-  $('#post-board').on('click', '.edit-post', onEditPostStart)
+  $('#post-content').on('click', '.remove-post', onDeletePost)
+  $('#post-content').on('click', '.edit-post', onEditPostStart)
 }
 
 // event handler listens for when 'create post' button is clicked
 const showFormForCreate = () => {
   store.creatingPost = true
   $('#create-post-button').hide()
+  $('#post-content').empty()
+  $('post-content').show()
   const postFormHtml = postFormTemplate()
-  $('#post-board').hide()
-  $('#post-form').html(postFormHtml)
+  $('#post-content').html(postFormHtml)
 }
 
 const showFormForEdit = () => {
   store.creatingPost = false
-  $('#post-board').hide()
+  $('#post-content').empty()
   $('#create-post-button').hide()
-  // const postFormHtml = postFormTemplate()
-  // $('#post-form').html(postFormHtml)
 }
 
 const onCreateOrEditPost = (event) => {
@@ -77,10 +76,9 @@ const onCreatePost = (event) => {
 }
 
 const onEditPostStart = (event) => {
-  $('#post-board').hide()
+  $('#post-content').empty()
   const postFormHtml = postFormTemplate()
   console.log(postFormHtml)
-  // $('#post-board').html(indexPostsHtml)
 }
 
 const onEditPostSubmit = (event) => {
