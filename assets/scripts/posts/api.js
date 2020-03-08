@@ -49,7 +49,6 @@ const indexMyPosts = () => {
 
 const deletePost = function (event) {
   const id = $(event.target).data('id')
-  console.log(id)
   return $.ajax({
     url: `${config.apiUrl}/posts/${id}`,
     method: 'DELETE',

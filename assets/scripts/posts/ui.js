@@ -13,7 +13,7 @@ const onIndexAllPostsSuccess = function (response) {
   } else {
     $('#message').text(`Viewing all user posts!`)
   }
-  if (store.user !== null) {
+  if (store.user !== null && store.user !== undefined) {
     $('#index-all-posts-button').hide()
     $('#index-my-posts-button').show()
   }
@@ -22,7 +22,6 @@ const onIndexAllPostsSuccess = function (response) {
 }
 
 const onIndexMyPostsSuccess = function (response) {
-  console.log('made it')
   $('#post-content').empty()
   $('#message').text(`Viewing your posts!`)
   const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
@@ -33,7 +32,7 @@ const onIndexMyPostsSuccess = function (response) {
 
 const failure = function (error) {
   console.log(error)
-  $('#message').text(`sorry, error on our end. please try again.`)
+  $('#message').text(`Sorry, error on our end. Please try again.`)
 }
 
 module.exports = {

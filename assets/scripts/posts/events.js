@@ -7,8 +7,8 @@ const postFormTemplate = require('../templates/post-form.handlebars')
 
 const store = require('./../store')
 
+// initial page display
 const displayLoggedOutHome = () => {
-  // initial page display
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#create-post-button').hide()
@@ -19,8 +19,8 @@ const displayLoggedOutHome = () => {
   onIndexAllPosts()
 }
 
+// create post event handlers on app load
 const eventHandlers = () => {
-  // create post event handlers
   $('#create-post-button').on('click', showFormForCreate)
   $('.edit-post').on('click', showFormForEdit)
   $('#index-all-posts-button').on('click', onIndexAllPosts)
