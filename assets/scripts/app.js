@@ -26,4 +26,6 @@ $(() => {
   $('#index-posts-button').on('click', postEvents.onIndexPosts)
   $('.post-board').on('click', '.remove-post', postEvents.onDeletePost)
   $('.post-board').on('click', '.edit-post', postEvents.onEditPostStart)
+
+  postEvents.onIndexPosts()
 })

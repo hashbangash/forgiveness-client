@@ -5,6 +5,9 @@ const store = require('./../store')
 const indexPostsTemplate = require('../templates/post-listing.handlebars')
 
 const onIndexPostsSuccess = function (response) {
+  if (store.user === undefined) {
+    console.log(response)
+  }
   if (store.routeFromCreatePost === true) {
     $('#create-post-form').trigger('reset')
     $('#create-post-form').hide()
@@ -14,6 +17,7 @@ const onIndexPostsSuccess = function (response) {
     $('#message').text(`generated existing posts!`)
   }
   const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
+  console.log(indexPostsHtml)
   $('#post-board').html(indexPostsHtml)
 }
 
