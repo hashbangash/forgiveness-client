@@ -1,5 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 
+@font-face {
+  font-family: 'Averia Serif Libre', cursive;
+  src: url('public/Averia_Serif_Libre/AveriaSerifLibre-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Macondo Swash Caps', cursive;
+  src: url('public/Macondo_Swash_Caps/MacondoSwashCaps-Regular.ttf') format('truetype');
+}
+
 html,
 body {
   height: 100%;
@@ -15,10 +25,12 @@ main {
 
 h1 {
   background-color: green;
+  font-family: 'Macondo Swash Caps';
 }
 
 .box {
   background-color: $secondary;
+  font-family: 'Averia Serif Libre';
 }
 
 .user-actions {
