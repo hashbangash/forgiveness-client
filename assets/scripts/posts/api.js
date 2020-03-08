@@ -28,23 +28,23 @@ const editPost = (post, id) => {
   })
 }
 
-const indexPosts = () => {
-  if (store.user === undefined) {
-    return $.ajax({
-      url: `${config.apiUrl}/posts`,
-      method: 'GET',
-      data: ''
-    })
-  } else {
-    return $.ajax({
-      url: `${config.apiUrl}/posts`,
-      method: 'GET',
-      headers: {
-        Authorization: `Token token=${store.user.token}`
-      },
-      data: ''
-    })
-  }
+const indexAllPosts = () => {
+  return $.ajax({
+    url: `${config.apiUrl}/posts`,
+    method: 'GET',
+    data: ''
+  })
+}
+
+const indexMyPosts = () => {
+  return $.ajax({
+    url: `${config.apiUrl}/posts`,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: ''
+  })
 }
 
 const deletePost = function (event) {
@@ -62,6 +62,7 @@ const deletePost = function (event) {
 module.exports = {
   createPost,
   editPost,
-  indexPosts,
+  indexAllPosts,
+  indexMyPosts,
   deletePost
 }
