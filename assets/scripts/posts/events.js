@@ -3,8 +3,7 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields')
-const postFormTemplate = require('../templates/post-form.handlebars')
-
+const postFormCreate = require('../templates/post-form-create.handlebars')
 const store = require('./../store')
 
 // initial page display
@@ -22,12 +21,15 @@ const displayLoggedOutHome = () => {
 // create post event handlers on app load
 const eventHandlers = () => {
   $('#create-post-button').on('click', showFormForCreate)
-  $('.edit-post').on('click', showFormForEdit)
   $('#index-all-posts-button').on('click', onIndexAllPosts)
   $('#index-my-posts-button').on('click', onIndexMyPosts)
   $('#post-content').on('submit', '.create-form', function (event) {
     event.preventDefault()
     onCreateOrEditPost(event)
+  })
+  $('#post-content').on('submit', '.update-form', function (event) {
+    event.preventDefault()
+    onEditPostSubmit(event)
   })
   $('#post-content').on('click', '.remove-post', onDeletePost)
   $('#post-content').on('click', '.edit-post', onEditPostStart)
@@ -38,15 +40,8 @@ const showFormForCreate = () => {
   store.creatingPost = true
   $('#create-post-button').hide()
   $('#post-content').empty()
-  $('post-content').show()
-  const postFormHtml = postFormTemplate()
+  const postFormHtml = postFormCreate()
   $('#post-content').html(postFormHtml)
-}
-
-const showFormForEdit = () => {
-  store.creatingPost = false
-  $('#post-content').empty()
-  $('#create-post-button').hide()
 }
 
 const onCreateOrEditPost = (event) => {
@@ -76,16 +71,16 @@ const onCreatePost = (event) => {
 }
 
 const onEditPostStart = (event) => {
-  $('#post-content').empty()
-  const postFormHtml = postFormTemplate()
-  console.log(postFormHtml)
+  store.creatingPost = false
+  const id = $(event.target).data('id')
+  api.showPost(id)
+    .then(ui.onShowPostSuccess)
+    .catch(ui.failure)
 }
 
 const onEditPostSubmit = (event) => {
-  event.preventDefault()
   const data = getFormFields(event.target)
-  const id = $(event.target).data('id')
-  console.log(data, id)
+  const id = store.post.post.id
   const post = {
     'post': {
       'title': data.title,
@@ -95,7 +90,10 @@ const onEditPostSubmit = (event) => {
     }
   }
   api.editPost(post, id)
-    .then(ui.onEditPostSuccess)
+    .then(function () {
+      store.editingPost = true
+      onIndexAllPosts(event)
+    })
     .catch(ui.failure)
 }
 
@@ -124,7 +122,6 @@ module.exports = {
   eventHandlers,
   displayLoggedOutHome,
   showFormForCreate,
-  showFormForEdit,
   onCreatePost,
   onCreateOrEditPost,
   onIndexAllPosts,
