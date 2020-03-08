@@ -38,7 +38,7 @@ const indexAllPosts = () => {
 
 const indexMyPosts = () => {
   return $.ajax({
-    url: `${config.apiUrl}/posts`,
+    url: `${config.apiUrl}/posts?user_posts=true`,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`

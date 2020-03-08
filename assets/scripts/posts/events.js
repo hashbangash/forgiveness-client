@@ -24,7 +24,7 @@ const eventHandlers = () => {
   $('#create-post-button').on('click', showFormForCreate)
   $('.edit-post').on('click', showFormForEdit)
   $('#index-all-posts-button').on('click', onIndexAllPosts)
-  // #TODO $('#index-my-posts-button').on('click', onIndexMyPosts)
+  $('#index-my-posts-button').on('click', onIndexMyPosts)
   $('#post-form').on('submit', '.create-form', function (event) {
     event.preventDefault()
     onCreateOrEditPost(event)
@@ -104,6 +104,12 @@ const onEditPostSubmit = (event) => {
 const onIndexAllPosts = () => {
   api.indexAllPosts()
     .then(ui.onIndexAllPostsSuccess)
+    .catch(ui.failure)
+}
+
+const onIndexMyPosts = () => {
+  api.indexMyPosts()
+    .then(ui.onIndexMyPostsSuccess)
     .catch(ui.failure)
 }
 

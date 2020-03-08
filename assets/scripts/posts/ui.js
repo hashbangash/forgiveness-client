@@ -13,8 +13,22 @@ const onIndexAllPostsSuccess = function (response) {
   } else {
     $('#message').text(`Viewing all user posts!`)
   }
+  if (store.user !== null) {
+    $('#index-all-posts-button').hide()
+    $('#index-my-posts-button').show()
+  }
   const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
   $('#post-board').html(indexPostsHtml)
+}
+
+const onIndexMyPostsSuccess = function (response) {
+  console.log('made it')
+  $('#post-board').empty()
+  $('#message').text(`Viewing your posts!`)
+  const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
+  $('#post-board').html(indexPostsHtml)
+  $('#index-all-posts-button').show()
+  $('#index-my-posts-button').hide()
 }
 
 const failure = function (error) {
@@ -24,5 +38,6 @@ const failure = function (error) {
 
 module.exports = {
   onIndexAllPostsSuccess,
+  onIndexMyPostsSuccess,
   failure
 }
