@@ -3,14 +3,27 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields')
+const postFormTemplate = require('../templates/post-form.handlebars')
 
 const store = require('./../store')
 
 // event handler listens for when 'create post' button is clicked
 const showForm = () => {
   $('#create-post-button').hide()
-  $('#create-post-form').show()
-  $('#message').text('fill out the form to post!')
+  const postFormHtml = postFormTemplate()
+  $('#post-board').hide()
+  $('#post-form').html(postFormHtml)
+}
+
+const onCreateOrEditPost = (event) => {
+  alert('wait!')
+  console.log(event.target)
+  event.preventDefault()
+  if (event.target === 'createPost') {
+    onCreatePost()
+  } else {
+    onEditPostStart()
+  }
 }
 
 // event handler listens for when 'create post' form submit is clicked
@@ -34,17 +47,10 @@ const onCreatePost = (event) => {
 }
 
 const onEditPostStart = (event) => {
-  $('#edit-post-form').show()
-  $('#message').text('please re-fill out the form to edit!')
-  // const id = $(event.target).data('id')
-  // console.log(id, event)
-  // const parent = (event.target).parentElement
-  // console.log(parent)
-  // const title = $(parent).attr('.title')
-  // console.log(title)
-  // $('#create-post-form [name="title"]').val(parent.title)
-
-  ui.clearPosts()
+  $('#post-board').hide()
+  const postFormHtml = postFormTemplate()
+  console.log(postFormHtml)
+  // $('#post-board').html(indexPostsHtml)
 }
 
 const onEditPostSubmit = (event) => {
@@ -80,17 +86,12 @@ const onDeletePost = (event) => {
     .catch(ui.failure)
 }
 
-const onClearPosts = (event) => {
-  event.preventDefault()
-  ui.clearPosts()
-}
-
 module.exports = {
   showForm,
   onCreatePost,
+  onCreateOrEditPost,
   onIndexPosts,
   onDeletePost,
-  onClearPosts,
   onEditPostStart,
   onEditPostSubmit
 }

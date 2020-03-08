@@ -1,46 +1,37 @@
 @import '~bootstrap/scss/bootstrap';
 
+html,
 body {
-  background: lighten($info, 50%);
-  min-height: 100vh;
-  padding: 5rem 0 1rem;
+  height: 100%;
 }
+
+.page-content {
+  flex: 1 0 auto;
+}
+
 main {
-  @include make-container;
-  @include make-container-max-widths;
+  flex-direction: row-reverse;
+}
 
-  section {
-    @include make-col-ready;
-    @include media-breakpoint-up(md) {
-      @include make-col(6);
-    }
-    @include media-breakpoint-up(lg) {
-      @include make-col(4);
-    }
-    background: $white;
-    border: 1px solid;
-    cursor: pointer;
-    margin: -1px;
-    outline: none;
-    padding: 1rem;
+h1 {
+  background-color: green;
+}
 
-    p {
-      margin-bottom: 0;
-    }
+.box {
+  background-color: $secondary;
+}
 
-  }
+.user-actions {
+  background-color: purple;
+}
 
-  .post-board {
-    @include make-row;
+.sticky-footer {
+  flex-shrink: none;
+}
 
-    &:empty {
-      &::before {
-        color: lighten($info, 25%);
-        font-size: 10vh;
-        line-height: .85;
-        text-align: center;
-        width: 100%;
-      }
-    }
-  }
+/* Other Classes for Page Styling */
+
+body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
 }

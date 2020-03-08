@@ -9,7 +9,8 @@ $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#create-post-button').hide()
-  $('#index-posts-button').hide()
+  $('#index-all-posts-button').hide()
+  $('#index-my-posts-button').hide()
   $('#create-post-form').hide()
   $('#edit-post-form').hide()
 
@@ -21,9 +22,11 @@ $(() => {
 
   // create post event handlers
   $('#create-post-button').on('click', postEvents.showForm)
-  $('#create-post-form').on('submit', postEvents.onCreatePost)
-  $('#edit-post-form').on('submit', postEvents.onEditPostSubmit)
-  $('#index-posts-button').on('click', postEvents.onIndexPosts)
-  $('.post-board').on('click', '.remove-post', postEvents.onDeletePost)
-  $('.post-board').on('click', '.edit-post', postEvents.onEditPostStart)
+  $('#index-all-posts-button').on('click', postEvents.onIndexAllPosts)
+  $('#index-my-posts-button').on('click', postEvents.onIndexMyPosts)
+  $('#post-form').on('submit', '.create-or-edit-post-submit', postEvents.onCreateOrEditPost)
+  $('#post-board').on('click', '.remove-post', postEvents.onDeletePost)
+  $('#post-board').on('click', '.edit-post', postEvents.onEditPostStart)
+
+  postEvents.onIndexPosts()
 })

@@ -29,14 +29,22 @@ const editPost = (post, id) => {
 }
 
 const indexPosts = () => {
-  return $.ajax({
-    url: `${config.apiUrl}/posts`,
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    data: ''
-  })
+  if (store.user === undefined) {
+    return $.ajax({
+      url: `${config.apiUrl}/posts`,
+      method: 'GET',
+      data: ''
+    })
+  } else {
+    return $.ajax({
+      url: `${config.apiUrl}/posts`,
+      method: 'GET',
+      headers: {
+        Authorization: `Token token=${store.user.token}`
+      },
+      data: ''
+    })
+  }
 }
 
 const deletePost = function (event) {
