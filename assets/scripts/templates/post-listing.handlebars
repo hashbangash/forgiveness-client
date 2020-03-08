@@ -13,7 +13,9 @@
     <p class='body'>
       {{post.body}}
     </p>
-      {{> remove-post id=post.id}}
-      {{> edit-post id=post.id}}
+      {{#if post.editable}}
+        {{> remove-post id=post.id}}
+        {{> edit-post id=post.id}}
+      {{/if}}
   </div>
 {{/each}}
