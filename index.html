@@ -11,13 +11,14 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-      <header>
+    <body class="container">
+      <header class="col-xs-12 col-md-12">
         <h1>the forgiveness project(ion)</h1>
       </header>
       <main>
-        <section id='user-auth'>
-          <form id='sign-up'>
+        <section id="user-actions" class="col-xs-12 col-md-4">
+          <p id="message"></p>
+          <form id="sign-up">
             <fieldset>
               <legend>Sign up!</legend>
               <input name='credentials[email]' type='email' placeholder="email">
@@ -26,7 +27,7 @@
               <input type='submit' value='sign up!'>
             </fieldset>
           </form>
-          <form id='sign-in'>
+          <form id="sign-in">
             <fieldset>
               <legend>Sign in!</legend>
               <input name='credentials[email]' type='email' placeholder="person@site.com">
@@ -34,7 +35,7 @@
               <input type='submit' value='sign in!'>
             </fieldset>
           </form>
-          <form id='change-password'>
+          <form id="change-password">
             <fieldset>
               <legend>Change password!</legend>
               <input name='passwords[old]' type='password' placeholder="old p4ssw0rd143">
@@ -42,19 +43,16 @@
               <input type='submit' value='change password!'>
             </fieldset>
           </form>
-          <form id='sign-out'>
+          <form id="sign-out">
             <fieldset>
               <legend>Sign out!</legend>
               <input type='submit' value='Sign out!'>
             </fieldset>
           </form>
+          <button id="index-posts-button" class="btn btn-primary">My Posts</button>
+          <button id="create-post-button" class="btn btn-primary">Create Post</button>
         </section>
-        <section id='post-buttons'>
-          <p id='message'></p>
-          <button id='index-posts-button' class='btn btn-primary'>Show Posts</button>
-          <button id='create-post-button' class='btn btn-primary'>Create Post</button>
-        </section>
-        <section id='post-form'>
+        <section id="post-form" class="modal hidden">
           <form>
             <fieldset>
               <legend>Create a post!</legend>
@@ -65,14 +63,14 @@
               <input name='author' type='text' placeholder="name/alias/historical figure">
               <br>
               <label>Body:</label>
-              <textarea name='body' type='text' placeholder="here goes nothing!"></textarea>
+              <textarea name='body' placeholder="here goes nothing!"></textarea>
               <br>
               <input type='submit' value='create post!'>
             </fieldset>
           </form>
         </section>
-        <section id="post-board"></section>
+        <section id="post-board" class="col-xs-12 col-md-8"></section>
       </main>
-      <footer>Copyright 2020 Ash Grevelink</footer>
+      <footer id="footer" class="col-xs-12 col-md-12">Copyright 2020 Ash Grevelink</footer>
     </body>
 </html>
