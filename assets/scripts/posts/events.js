@@ -84,8 +84,7 @@ const onEditPostSubmit = (event) => {
     'post': {
       'title': data.title,
       'author': data.author,
-      'body': data.body,
-      'post_date': '2020/02/02'
+      'body': data.body
     }
   }
   api.editPost(post, id)
