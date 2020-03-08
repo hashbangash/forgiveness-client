@@ -5,6 +5,14 @@ body {
   height: 100%;
 }
 
+main {
+  flex-direction: row-reverse;
+}
+
+h1 {
+  background-color: green;
+}
+
 .page-content {
   flex: 1 0 auto;
 }
