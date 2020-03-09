@@ -33,24 +33,44 @@ h1 {
   font-size: 70px;
   color: white;
   font-family: 'Macondo Swash Caps';
-  padding: 80px 120px 120px 40px;
+  padding: 120px 120px 180px 40px;
+  text-shadow: 3px 3px #a32b0b;
 }
 
 .box {
-  background-color: $secondary;
+  background-color: grey;
+  border-radius: 25px;
+  padding-left: 20px;
+  background-color: #3d3d3d;
+  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+}
+
+.title {
+  text-shadow: 2px 2px #a32b0b;
+  color: white;
 }
 
 .user-actions {
-  background-color: purple;
+  text-shadow: 2px 2px #a32b0b;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 25px;
+  color: white;
+  background-color: grey;
+  background-color: #3d3d3d;
+  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
 }
 
 .sticky-footer {
   flex-shrink: none;
+  font-family: 'Averia Serif Libre';
 }
 
 /* Other Classes for Page Styling */
 
 body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: #thistle;
+  // background: linear-gradient(to right, #004949, #325050);
+  background-color: #005270;
+  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
 }

@@ -19,21 +19,21 @@
         <main class="container-fluid row main">
           <section class="user-actions col-xs-12 col-md-4">
             <p id="message"></p>
-            <form id="sign-up">
+            <form id="sign-up" class="form-group">
               <fieldset>
                 <legend>Sign up!</legend>
-                <input name='credentials[email]' type='email' placeholder="email">
-                <input name='credentials[password]' type='password' placeholder="password">
-                <input name='credentials[password_confirmation]' type='password' placeholder="confirm password">
-                <input type='submit' value='sign up!'>
+                <input name='credentials[email]' class="form-control" type='email' placeholder="email">
+                <input name='credentials[password]' class="form-control" type='password' placeholder="password">
+                <input name='credentials[password_confirmation]' class="form-control" type='password' placeholder="confirm password">
+                <input type='submit' class="form-control" value='sign up!'>
               </fieldset>
             </form>
-            <form id="sign-in">
+            <form id="sign-in" class="form-group">
               <fieldset>
                 <legend>Sign in!</legend>
-                <input name='credentials[email]' type='email' placeholder="person@site.com">
-                <input name='credentials[password]' type='password' placeholder="p4ssw0rd143">
-                <input type='submit' value='sign in!'>
+                <input name='credentials[email]' class="form-control" type='email' placeholder="person@site.com">
+                <input name='credentials[password]' class="form-control" type='password' placeholder="p4ssw0rd143">
+                <input type='submit' class="form-control" value='sign in!'>
               </fieldset>
             </form>
             <form id="change-password">

@@ -3,13 +3,13 @@
     <h2 class='title'>
       {{post.title}}
     </h2>
-    <h3 class='author'>
+    <h4 class='author'>
       {{#if post.author}}
-        {{post.author}}
+        by {{post.author}}
       {{else}}
-        Anonymous.
+        by Anonymous
       {{/if}}
-    </h3>
+    </h4>
     <p class='body'>
       {{post.body}}
     </p>
