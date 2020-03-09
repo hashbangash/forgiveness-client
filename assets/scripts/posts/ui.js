@@ -33,6 +33,7 @@ const onIndexAllPostsSuccess = function (response) {
   // add html to app
   const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
   $('#post-content').html(indexPostsHtml)
+  resetAllForms()
 }
 
 // index only the user's posts
@@ -43,6 +44,7 @@ const onIndexMyPostsSuccess = function (response) {
   $('#post-content').html(indexPostsHtml)
   $('#index-all-posts-button').show()
   $('#index-my-posts-button').hide()
+  resetAllForms()
 }
 
 // show a single post
@@ -51,6 +53,7 @@ const onShowPostSuccess = function (response) {
   const postFormHtml = updatePostForm({ post: response.post })
   $('#post-content').html(postFormHtml)
   store.post = response
+  resetAllForms()
 }
 
 // save errors to storage since console logs aren't allowed in this project
@@ -59,9 +62,17 @@ const failure = function (error) {
   $('#message').text(`Sorry, error on our end. Please try again.`)
 }
 
+const resetAllForms = function () {
+  $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
+  $('#change-password').trigger('reset')
+  $('#sign-out').trigger('reset')
+}
+
 module.exports = {
   onIndexAllPostsSuccess,
   onIndexMyPostsSuccess,
   onShowPostSuccess,
+  resetAllForms,
   failure
 }
