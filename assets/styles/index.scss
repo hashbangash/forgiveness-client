@@ -1,12 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 
 @font-face {
-  font-family: 'Averia Serif Libre', cursive;
+  font-family: 'Averia Serif Libre';
   src: url('public/Averia_Serif_Libre/AveriaSerifLibre-BoldItalic.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Macondo Swash Caps', cursive;
+  font-family: 'Macondo Swash Caps';
   src: url('public/Macondo_Swash_Caps/MacondoSwashCaps-Regular.ttf') format('truetype');
 }
 
@@ -21,16 +21,17 @@ body {
 
 main {
   flex-direction: row-reverse;
+  font-family: 'Averia Serif Libre';
 }
 
 h1 {
-  background-color: green;
+  background-image: url('public/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg');
+  font-size: 100px;
   font-family: 'Macondo Swash Caps';
 }
 
 .box {
   background-color: $secondary;
-  font-family: 'Averia Serif Libre';
 }
 
 .user-actions {
