@@ -2,14 +2,14 @@
   <fieldset>
     <legend>Edit your post :)</legend>
     <label>Title:</label>
-    <input name='title' type='text' placeholder="title" value="{{post.title}}" required>
+    <input name='title' type='text' class="form-control" placeholder="title" value="{{post.title}}" required>
     <br>
     <label>Author:</label>
-    <input name='author' type='text' placeholder="name/alias/historical figure" value="{{post.author}}">
+    <input name='author' type='text' class="form-control" placeholder="name/alias/historical figure" value="{{post.author}}">
     <br>
     <label>Body:</label>
-    <textarea name='body' placeholder="here goes nothing!" rows="5" required>{{post.body}}</textarea>
+    <textarea name='body' class="form-control" placeholder="here goes nothing!" rows="5" required>{{post.body}}</textarea>
     <br>
-    <input type='submit' value='Submit Post'>
+    <input type='submit' class="form-control" value='Submit Post'>
   </fieldset>
 </form>

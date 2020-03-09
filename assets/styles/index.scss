@@ -41,6 +41,8 @@ h1 {
   background-color: grey;
   border-radius: 25px;
   padding-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   background-color: #3d3d3d;
   background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
 }
@@ -50,13 +52,13 @@ h1 {
   color: white;
 }
 
-.user-actions {
+.user-actions,
+.form-group {
   text-shadow: 2px 2px #a32b0b;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-radius: 25px;
+  border-radius: 10px;
   color: white;
-  background-color: grey;
   background-color: #3d3d3d;
   background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
 }
