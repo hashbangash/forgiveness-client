@@ -15,6 +15,11 @@ body {
   height: 100%;
 }
 
+.btn-dark {
+  button-color: white;
+  button-background-color: #383838;
+}
+
 .page-content {
   flex: 1 0 auto;
 }
@@ -68,11 +73,8 @@ h1 {
   font-family: 'Averia Serif Libre';
 }
 
-/* Other Classes for Page Styling */
-
 body {
   background: #thistle;
-  // background: linear-gradient(to right, #004949, #325050);
   background-color: #005270;
   background-image: url("https://www.transparenttextures.com/patterns/buried.png");
 }
