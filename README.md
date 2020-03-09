@@ -11,9 +11,12 @@
 #### Live API Link: [here](https://floating-springs-18499.herokuapp.com/posts)
 #### Back-End Repo: [here](https://github.com/hashbangash/forgiveness-API)
 
+## What the app does and how to use it
+This app is for making posts about forgiveness so that you can come into the present moment. You can sign up to make an account, to create, edit and delete posts. As a non-signed up user, you can view others' posts.
+
 ## Planning
-Before starting, I developed my simple [wireframes and user stories](https://i.imgur.com/uZFe9kz.jpg) and referenced the GA schedule and requirements. I created diagrams of the main four UX views and sketched out the semantic HTML structure.
-![main four UX views and sketched out the semantic HTML structure](https://i.imgur.com/uZFe9kz.jpg)
+Before starting, I developed my simple [wireframes, user stories, and an ERD](https://i.imgur.com/uZFe9kz.jpg) and referenced the GA schedule and requirements. I created diagrams of the main four UX views and sketched out the semantic HTML structure.
+![main four UX views and sketched out the semantic HTML structure](https://i.imgur.com/kqNJ6T7.jpg)
 
 ## Software Design/Problem Solving
 
@@ -41,7 +44,7 @@ I implemented not just CRUD, but CRRRUD. I met my own goals for styling with mob
 
 ## Front-End Tech & Dependencies
 
-I use Node.js for this client because it's a useful JS runtime and handles running code on the browser for me. It makes all the parts of web development that I don't understand yet work. A really cool aspect of it is the [event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ), which means that I/O doesn't get blocked even though the environment is single-threaded. This is why in my code I used callback functions with my event handlers.
+I use Node.js (JavaScript) for this client because it's a useful JS runtime and handles running code on the browser for me. It makes all the parts of web development that I don't understand yet work. A really cool aspect of it is the [event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ), which means that I/O doesn't get blocked even though the environment is single-threaded. This is why in my code I used callback functions with my event handlers.
 
 Node.js itself has an MIT license. The MIT license is compatible with my project because it can be re-licensed under other licenses. The MIT license is compatible with many copyleft licenses, such as the GNU General Public License (GPL). It is open-source and free, in the sense of 'freedom'.
 
@@ -68,7 +71,7 @@ Since this is my first Node.js app, I'm listing out what each dependency does fo
 GitHub identifies known vulnerabilities in my dependencies. There are quite a few vulnerabilities in the devDependencies. Go ahead, try to break my app!
 
 ## Future of this App
-Learning how to build an app where I can continually update to current versions of dependencies is a huge priority of mine going forward. This will help keep my apps secure.
+Learning how to build an app where I can continually update to current versions of dependencies is a huge priority of mine going forward. This will help keep my apps secure. I'd love to tighten up the layout as well with more perfect Bootstrap and CSS styles.
 
 #### Image Source
 Mount_Everest_as_seen_from_Drukair2.jpg: shrimpo1967 derivative work: Papa Lima Whiskey 2 (talk) (https://commons.wikimedia.org/wiki/File:Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg), „Mount Everest as seen from Drukair2 PLW edit“, https://creativecommons.org/licenses/by-sa/2.0/legalcode.
