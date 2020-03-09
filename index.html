@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>The Forgiveness Project(ion)</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="d-flex flex-column">
+      <div class="page-content">
+        <header>
+          <h1>the forgiveness project(ion)</h1>
+        </header>
+        <main class="container-fluid row main">
+          <section class="user-actions col-xs-12 col-md-4">
+            <p id="message"></p>
+            <form id="sign-up" class="form-group">
+              <fieldset>
+                <legend>Sign up!</legend>
+                <input name='credentials[email]' class="form-control" type='email' placeholder="email">
+                <input name='credentials[password]' class="form-control" type='password' placeholder="password">
+                <input name='credentials[password_confirmation]' class="form-control" type='password' placeholder="confirm password">
+                <input type='submit' class="form-control" value='sign up!'>
+              </fieldset>
+            </form>
+            <form id="sign-in" class="form-group">
+              <fieldset>
+                <legend>Sign in!</legend>
+                <input name='credentials[email]' class="form-control" type='email' placeholder="person@site.com">
+                <input name='credentials[password]' class="form-control" type='password' placeholder="p4ssw0rd143">
+                <input type='submit' class="form-control" value='sign in!'>
+              </fieldset>
+            </form>
+            <form id="change-password" class="form-group">
+              <fieldset>
+                <legend>Change password!</legend>
+                <input name='passwords[old]' class="form-control" type='password' placeholder="old p4ssw0rd143">
+                <input name='passwords[new]' class="form-control" type='password' placeholder="new p4ssw0rd143">
+                <input type='submit' class="form-control" value='change password!'>
+              </fieldset>
+            </form>
+            <form id="sign-out" class="form-group">
+              <fieldset>
+                <legend>Sign out!</legend>
+                <input type='submit' class="form-control" value='Sign out!'>
+              </fieldset>
+            </form>
+            <button id="index-my-posts-button" class="btn btn-primary">My Posts</button>
+            <button id="index-all-posts-button" class="btn btn-primary">All Posts</button>
+            <button id="create-post-button" class="btn btn-primary">Create Post</button>
+            <section class="intro">
+              <p>Join the forgiveness project, a simple way to project something
+                you want to forgive from the past or future and come into the temple of the now. :)
+              </p>
+              <p>"Before you enter the temple, forgive." <br> -Jesus</p>
+              <p>
+                "The whole essence of Zen consists in walking along the razor’s edge of Now — to be so utterly,
+                so completely present that no problem, no suffering, nothing that is not who you are in your
+                essence, can survive in you. In the Now, in the absence of time, all your problems dissolve.
+                Suffering needs time; it cannot survive in the Now. The great Zen master Rinzai, in order to
+                take his students’ attention away from time, would often raise his finger and slowly ask:
+                What, at this moment, is lacking? A powerful question that does not require an answer on
+                the level of the mind. It is designed to take your attention deeply into the Now. A similar
+                question in the Zen tradition is this: If not now, when?"
+                <br>
+                <br>
+                Eckart Tolle | The Power of Now | page 52
+              </p>
+            </section>
+          </section>
+          <section id="post-content" class="col-xs-12 col-md-8">
+          </section>
+      </main>
+      </div>
+      <footer class="sticky-footer container-fluid text-center py-4 bg-dark text-white-50">
+        Copyright 2020 - Ash Grevelink
+      </footer>
+    </body>
+</html>
